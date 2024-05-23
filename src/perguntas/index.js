@@ -3,6 +3,7 @@ const router = express.Router();
 
 const PerguntaService = require('./perguntas.service');
 const UsuarioService = require('../usuarios/usuarios.service');
+const AvaliacaoService = require('../avaliacoes/avaliacoes.service');
 
 router.get('/', async (req, res, next) => {
     const perguntas = await PerguntaService.findAll();
@@ -10,14 +11,13 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-    console.log(req.body);
-    const { subUsuario: apelido } = req.body;
-    const ids = (await PerguntaService.findAll())
-        .map(pergunta => pergunta.id);
-    console.log('ids perguntas atuais');
-    console.log(ids);
-    await UsuarioService.validatorUsuarioExiste(apelido);
-    await UsuarioService.create(apelido);
+    const { body } = req;
+    const { subUsuario: apelido } = body;
+    // await UsuarioService.validatorUsuarioExiste(apelido);
+    // await UsuarioService.create(apelido);
+
+    AvaliacaoService.calcularNota(body);
+
 
 
     res.redirect('/');

@@ -18,8 +18,8 @@
                 <% for (const pergunta of perguntas) { %>
                     <section>
                         <h3><%= pergunta.texto %></h3>
-                        <p>Sim <input type="radio" name="radio<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-1" value="true"></p>
-                        <p>Não <input type="radio" name="radio<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-2" value="false" checked></p>
+                        <p>Sim <input type="radio" name="pergunta<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-1" value="true"></p>
+                        <p>Não <input type="radio" name="pergunta<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-2" value="false" checked></p>
                     </section>
                 <% } %>
                 <button type="submit" value="accept">enviar</button>

@@ -13,7 +13,12 @@ module.exports = {
         texto: 'Você utiliza um gerenciador de senhas?',
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        texto: 'Você atualiza sempre os sistemas operacionais de seus dispositivos?',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
     /**
      * Add seed commands here.
