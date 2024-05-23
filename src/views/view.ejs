@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <h1>SegureMe Poll</h1>
+        </header>
+        <main>
+            <form action="/" method="post">
+                <section>
+                    <p><label for="subUsuario">Identificação do usuário</label></p>
+                    <p><input type="text" name="subUsuario" id="subUsuario"></p>
+                </section>
+                <% for (const pergunta of perguntas) { %>
+                    <section>
+                        <h3><%= pergunta.texto %></h3>
+                        <p>Sim <input type="radio" name="radio<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-1" value="true"></p>
+                        <p>Não <input type="radio" name="radio<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-2" value="false" checked></p>
+                    </section>
+                <% } %>
+                <button type="submit" value="accept">enviar</button>
+            </form>
+        </main>
+    </body>
+</html>
