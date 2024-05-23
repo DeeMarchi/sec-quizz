@@ -13,13 +13,10 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     const { body } = req;
     const { subUsuario: apelido } = body;
-    // await UsuarioService.validatorUsuarioExiste(apelido);
-    // await UsuarioService.create(apelido);
-
-    AvaliacaoService.calcularNota(body);
-
-
-
+    await UsuarioService.validatorUsuarioExiste(apelido);
+    const usuario = await UsuarioService.create(apelido);
+    const nota = await AvaliacaoService.calcularNota(body);
+    await AvaliacaoService.create(usuario.id, nota);
     res.redirect('/');
 });
 
