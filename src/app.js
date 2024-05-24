@@ -6,6 +6,7 @@ const logger = require('morgan');
 
 const errorsMiddlewares = require('./errors/middlewares');
 const perguntasRouter = require('./perguntas');
+const avaliacoesRouter = require('./avaliacoes');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(perguntasRouter);
+app.use('/avaliacoes', avaliacoesRouter);
 
 app.use(errorsMiddlewares.notFound);
 app.use(errorsMiddlewares.printStackTrace);
