@@ -7,7 +7,7 @@ const AvaliacaoService = require('../avaliacoes/avaliacoes.service');
 
 router.get('/', async (req, res, next) => {
     const perguntas = await PerguntaService.findAll();
-    res.render('view', { perguntas });
+    res.render('index', { perguntas });
 });
 
 router.post('/', async (req, res, next) => {
