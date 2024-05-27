@@ -23,8 +23,13 @@ const filtrarRespostasPositivas = perguntasConvertidas => {
     return perguntasConvertidas.filter(pergunta => pergunta.respostaPergunta);
 };
 
+const filtrarRespostasNegativas = perguntasConvertidas => {
+    return perguntasConvertidas.filter(pergunta => !pergunta.respostaPergunta);
+};
+
 module.exports = {
     findAll,
     converterParaRespostas,
-    filtrarRespostasPositivas
+    filtrarRespostasPositivas,
+    filtrarRespostasNegativas
 };

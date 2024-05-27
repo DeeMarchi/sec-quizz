@@ -10,21 +10,13 @@
             <h1>SegureMe Poll</h1>
         </header>
         <main>
-            <h2><a href="/avaliacoes/estatisticas">Estatisticas dos usuários</a></h2>
-            <form action="/" method="post">
+            <h1>Agradecemos sua participação</h1>
+            <% for (const pergunta of perguntas) { %>
                 <section>
-                    <p><label for="subUsuario">Identificação do usuário</label></p>
-                    <p><input type="text" name="subUsuario" id="subUsuario"></p>
+                    <h3><%= pergunta.texto %> TESTE</h3>
+                    <p>Dica: <%= pergunta.dica %></p>
                 </section>
-                <% for (const pergunta of perguntas) { %>
-                    <section>
-                        <h3><%= pergunta.texto %></h3>
-                        <p>Sim <input type="radio" name="pergunta<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-1" value="true"></p>
-                        <p>Não <input type="radio" name="pergunta<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-2" value="false" checked></p>
-                    </section>
-                <% } %>
-                <button type="submit" value="accept">enviar</button>
-            </form>
+            <% } %>
             <a href="/">Retornar</a>
         </main>
     </body>

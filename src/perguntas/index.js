@@ -13,11 +13,19 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     const { body } = req;
     const { subUsuario: apelido } = body;
-    await UsuarioService.validatorUsuarioExiste(apelido);
-    const usuario = await UsuarioService.create(apelido);
-    const nota = await AvaliacaoService.calcularNota(body);
-    await AvaliacaoService.create(usuario.id, nota);
-    res.redirect('/');
+    let perguntas = await PerguntaService.findAll();
+    const respostasUsuario = await PerguntaService.converterParaRespostas(body);
+    const negativas = PerguntaService.filtrarRespostasNegativas(respostasUsuario);
+    perguntas = perguntas.filter(pergunta => {
+        for (const negativa of negativas) {
+            if (negativa.id === pergunta.id) return true;
+        }
+    });
+    // await UsuarioService.validatorUsuarioExiste(apelido);
+    // const usuario = await UsuarioService.create(apelido);
+    // const nota = await AvaliacaoService.calcularNota(body);
+    // await AvaliacaoService.create(usuario.id, nota);
+    res.render('post', { perguntas });
 });
 
 module.exports = router;
