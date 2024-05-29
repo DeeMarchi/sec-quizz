@@ -21,6 +21,6 @@ module.exports = {
             attributes: [ [ sequelize.fn('AVG', sequelize.col('nota')), 'mediaNotas' ]],
             raw: true
         });
-        return query.mediaNotas;
+        return query.mediaNotas || 0.0;
     }
 };

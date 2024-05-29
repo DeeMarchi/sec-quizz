@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
+    <%- include('./partials/head') %>
+    <body class="container-main p-3">
         <header>
             <h1>SegureMe Poll</h1>
         </header>
         <main>
             <h2><a href="/avaliacoes/estatisticas">Estatisticas dos usuários</a></h2>
             <form action="/" method="post">
-                <section>
-                    <p><label for="subUsuario">Identificação do usuário</label></p>
-                    <p><input type="text" name="subUsuario" id="subUsuario"></p>
+                <section class="input-group mb-3">
+                    <p class="text-center"><input type="text" name="subUsuario" id="subUsuario" placeholder="Apelido" aria-label="Apelido" class="form-control"></p>
                 </section>
                 <% for (const pergunta of perguntas) { %>
                     <section>
@@ -23,7 +18,9 @@
                         <p>Não <input type="radio" name="pergunta<%= pergunta.id %>" id="radio-pergunta-<%= pergunta.id %>-2" value="false" checked></p>
                     </section>
                 <% } %>
-                <button type="submit" value="accept">enviar</button>
+                <p class="text-center">
+                    <button type="submit" value="accept" class="btn btn-secondary rounded-pill">enviar</button>
+                </p>
             </form>
         </main>
     </body>
