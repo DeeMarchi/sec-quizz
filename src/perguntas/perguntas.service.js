@@ -4,7 +4,7 @@ const converterStringParaBool = string => string === 'true';
 
 const findAll = () => {
     return Pergunta.findAll({
-        attributes: [ 'id', 'texto' ]
+        attributes: [ 'id', 'texto', 'dica' ]
     });
 };
 
