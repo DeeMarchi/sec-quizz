@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('./partials/head') %>
-    <body>
+    <body class="container-main p-3">
         <header>
             <h1>SegureMe Poll</h1>
         </header>
@@ -9,11 +9,13 @@
             <h1>Agradecemos sua participação</h1>
             <% for (const pergunta of perguntas) { %>
                 <section>
-                    <h3><%= pergunta.texto %> TESTE</h3>
+                    <h3><%= pergunta.texto %></h3>
                     <p>Dica: <%= pergunta.dica %></p>
                 </section>
             <% } %>
-            <a href="/">Retornar</a>
+            <div class="text-center">
+                <a href="/" class="btn btn-secondary rounded-pill">Retornar</a>
+            </div>
         </main>
     </body>
 </html>
