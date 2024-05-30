@@ -21,10 +21,10 @@ router.post('/', async (req, res, next) => {
             if (negativa.id === pergunta.id) return true;
         }
     });
-    // await UsuarioService.validatorUsuarioExiste(apelido);
-    // const usuario = await UsuarioService.create(apelido);
-    // const nota = await AvaliacaoService.calcularNota(body);
-    // await AvaliacaoService.create(usuario.id, nota);
+    await UsuarioService.validatorUsuarioExiste(apelido);
+    const usuario = await UsuarioService.create(apelido);
+    const nota = await AvaliacaoService.calcularNota(body);
+    await AvaliacaoService.create(usuario.id, nota);
     res.render('post', { perguntas });
 });
 
