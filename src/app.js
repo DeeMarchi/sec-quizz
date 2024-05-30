@@ -22,6 +22,7 @@ app.use('/avaliacoes', avaliacoesRouter);
 
 app.use(errorsMiddlewares.notFound);
 app.use(errorsMiddlewares.printStackTrace);
+app.use(errorsMiddlewares.catchNotFound);
 app.use(errorsMiddlewares.catchAll);
 
 module.exports = app;
