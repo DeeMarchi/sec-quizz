@@ -22,6 +22,18 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        texto: 'Você utiliza autenticação multi-fator?',
+        dica: 'Utilizando a autenticação multi-fator, protege a conta de acessos indevidos, mesmo caso alguém tenha sua senha, pois, é solicitado um código ao tentar o acesso',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        texto: 'Você utiliza senhas fortes?',
+        dica: 'Senhas fortes dificultam o trabalho de invasores em caso de vazão de dados, senhas fracas mesmo que criptografadas podem facilmente ser quebradas em questão de minutos, com o auxílio de ferramentas de recuperação de senhas',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
     /**
      * Add seed commands here.
