@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
     const usuario = await UsuarioService.create(apelido);
     const nota = await AvaliacaoService.calcularNota(body);
     await AvaliacaoService.create(usuario.id, nota);
-    res.render('post', { perguntas });
+    res.render('post', { perguntas, nota: nota.toFixed(1) });
 });
 
 module.exports = router;
